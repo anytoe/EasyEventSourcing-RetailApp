@@ -1,0 +1,29 @@
+<form (submit)="submit($event)">
+  <div class="row form-group">
+    <div class="col-md-6">
+      <label for="input-id">Id</label>
+      <input id="input-id" class="form-control" name="id" [(ngModel)]="product.ProductId" readonly />
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-md-6">
+      <label for="input-description">Description</label>
+      <input id="input-description" class="form-control" name="description" [(ngModel)]="product.Description" required />
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-md-6">
+      <label for="input-price">Price</label>
+      <input id="input-price" class="form-control" name="price" [(ngModel)]="product.Price" required />
+    </div>
+  </div>
+
+  <div class="row center">
+    <div class="col-md-2">
+      <button id="button-submit" class="btn-default" type="submit">Save</button>
+      <button id="button-submit" class="btn-default" [routerLink]="'/products/'" type="submit">Cancel</button>
+    </div>
+  </div>
+</form>

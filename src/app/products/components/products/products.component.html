@@ -1,0 +1,42 @@
+<div *ngIf="hasLoaded">
+
+  <div class="row center">
+    <div class="col-md-12">
+      <!-- <h3 *ngIf="hasProducts">Available Products</h3> -->
+      <h3 *ngIf="!hasProducts">Add some Products > <i class="fa-button fa fa-flask" (click)="createProducts()"></i></h3>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="hasProducts">
+
+    <h3 class="card-header text-center">
+      Add product to your basket or edit their properties
+    </h3>
+
+    <div class="card-body">
+      <table class="table">
+        <!-- <tr>
+          <th width="50%">
+            <span class="align-center">Description</span>
+          </th>
+          <th width="10%">
+            <span class="align-center">Price</span>
+          </th>
+          <th width="15%"></th>
+          <th width="15%"></th>
+        </tr> -->
+        <tr *ngFor="let product of products">
+          <td width="5%">
+            <i [id]="product.ProductId" [routerLink]="'/products/' + product.ProductId" class="fa fa-edit align-center action-button"></i>
+          </td>
+          <td>{{ product.Description }}</td>
+          <td><span class="align-right">{{ product.Price | currency:'GBP':true }}</span></td>
+          <td width="15%">
+            <i [id]="product.ProductId" (click)="addToBasket(product.ProductId)" class="fa fa-plus-square-o align-center action-button"></i>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>

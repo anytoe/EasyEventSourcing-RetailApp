@@ -1,0 +1,65 @@
+<div *ngIf="hasLoaded()">
+  <div class="row center">
+    <div class="col-md-12">
+      <!-- <h3 *ngIf="basket.HasItems">Your basket</h3> -->
+      <h3 *ngIf="!basket.HasItems">You don't have items in your basket</h3>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="basket.HasItems">
+
+    <!-- Basket navigator -->
+    <h3 class="card-header text-center">
+      <i *ngIf="canBackwards()" (click)="backwards()" class="fa fa-chevron-left action-button action-button-left"></i>
+      <span *ngIf="!canForwards()"> Your current basket</span>
+      <span *ngIf="canForwards()"> Your basket from {{ currentEvent | date:'dd.MM.yyyy HH:mm:ss' }}</span>
+      <i *ngIf="canForwards()" (click)="forward()" class="fa fa-chevron-right action-button action-button-right"></i>
+    </h3>
+
+    <!-- <h5 class="card-header">Test</h5> -->
+    <div class="card-body">
+      <!-- Basket table -->
+      <table class="table">
+        <tr>
+          <th width="50%">
+            <span class="align-center">Product</span>
+          </th>
+          <th width="20%">
+            <span class="align-center">Item Price</span>
+          </th>
+          <th width="10%">
+            <span class="align-center">Quantity</span>
+          </th>
+          <th width="20%">
+            <span class="align-center">Line Price</span>
+          </th>
+        </tr>
+        <tr *ngFor="let item of basket.Items">
+          <td>{{ item.Description }}</td>
+          <td>
+            <span class="align-right">
+            {{ item.ItemPrice | currency:'GBP':true }}
+            </span>
+          </td>
+          <td>
+            <span class="align-right">
+            {{ item.Quantity }}
+            </span>
+          </td>
+          <td>
+            <span class="align-right">{{ item.TotalPrice | currency:'GBP':true }}</span></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="align-right">
+            Total: {{ basket.TotalPrice | currency:'GBP':true }}
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

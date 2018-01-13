@@ -1,0 +1,25 @@
+@mixin layout-styles($name, $value) {
+  .#{$name} {
+    #{$name}: $value !important;
+  }
+  .#{$name}-top {
+    #{$name}-top: $value !important;
+  }
+  .#{$name}-bottom {
+    #{$name}-bottom: $value !important;
+  }
+  .#{$name}-left {
+    #{$name}-left: $value !important;
+  }
+  .#{$name}-right {
+    #{$name}-right: $value !important;
+  }
+  .#{$name}-vertical {
+    #{$name}-top: $value !important;
+    #{$name}-bottom: $value !important;
+  }
+  .#{$name}-horizontal {
+    #{$name}-left: $value !important;
+    #{$name}-right: $value !important;
+  }
+}

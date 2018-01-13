@@ -1,0 +1,39 @@
+@import "styles/variables.scss";
+@import '~font-awesome/css/font-awesome.css';
+
+body {
+    margin: 0px;
+}
+
+.content {
+    margin: 8px;
+}
+
+h3 {
+    color: $text-primary;
+}
+
+div, span {
+    color: $text-primary;
+}
+
+.action-button {
+    cursor: pointer;
+    color: $color-secondary;
+    font-size: x-large;
+    &:hover {
+        color: $color-third;
+    }
+}
+
+.align-center {
+    width: 100%;
+    text-align: center;
+    float: right;
+}
+
+.align-right {
+    width: 100%;
+    text-align: right;
+    float: right;
+}

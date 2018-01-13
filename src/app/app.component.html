@@ -1,0 +1,37 @@
+<nav class="navbar navbar-toggleable-md navbar-light">
+
+  <a class="navbar-brand" routerLink="/" href="#">
+    <img class="navbar-brand" src="../assets/images/navbar-image.png" alt="Icon">
+  </a>
+
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/basket" routerLinkActive="active" href="#">
+        <i class="fa fa-shopping-basket"></i>Basket</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/products" routerLinkActive="active" href="#">
+        <i class="fa fa-search"></i>Products</a>
+    </li>
+  </ul>
+
+  <app-basketicon></app-basketicon>
+  
+</nav>
+<div class="content">
+  <router-outlet>
+    <!-- Content -->
+  </router-outlet>
+</div>
+<footer>
+  <div class="footer navbar-fixed-bottom">
+    <!-- <div class="row">
+      <div class="col-sm-4">Link 1</div>
+      <div class="col-sm-4">Link 2</div>
+      <div class="col-sm-4">Link 3</div>
+    </div> -->
+
+    <!-- <hr/> -->
+    <!-- Copyright © Andreas Toedter. All rights reserved. -->
+  </div>
+</footer>
