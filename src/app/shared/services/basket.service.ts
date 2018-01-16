@@ -20,7 +20,7 @@ export class BasketService {
   getBasket(timestamp: Date) {
     // let encodedTimestamp = encodeURI(timestampString); // It is not clear to me why this is not working properly
     let timestampString = timestamp == null ? "" : "?timestamp=" + timestamp.toString().replace("+", "%2B");
-    let basketReadModel = this.http.get<BasketReadModel>(`http://localhost:50158/api/baskets${timestampString}`);
+    let basketReadModel = this.http.get<BasketReadModel>(`https://event-sourcing.azurewebsites.net/api/baskets${timestampString}`);
 
     basketReadModel.subscribe(data => {
       this.notifyBasketChange(data.ItemCount);      
@@ -30,13 +30,13 @@ export class BasketService {
   }
 
   getEvents() {
-    return this.http.get<Date[]>(`http://localhost:50158/api/baskets/events`);
+    return this.http.get<Date[]>(`https://event-sourcing.azurewebsites.net/api/baskets/events`);
   }
 
   addItem(productId: string) {
     let productReadModel = new ProductReadModel();
     productReadModel.ProductId = productId;
-    let currentQuantity = this.http.put<number>(`http://localhost:50158/api/baskets/`, productReadModel);
+    let currentQuantity = this.http.put<number>(`https://event-sourcing.azurewebsites.net/api/baskets/`, productReadModel);
     return currentQuantity;
   }
 

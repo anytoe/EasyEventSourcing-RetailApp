@@ -8,18 +8,18 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<ProductReadModel[]>(`http://localhost:50158/api/products/`);
+    return this.http.get<ProductReadModel[]>(`https://event-sourcing.azurewebsites.net/api/products/`);
   }
 
   get(id: string) {
-    return this.http.get<ProductReadModel>(`http://localhost:50158/api/products/${id}`);
+    return this.http.get<ProductReadModel>(`https://event-sourcing.azurewebsites.net/api/products/${id}`);
   }
 
   create() {
-    return this.http.post(`http://localhost:50158/api/products`, null);
+    return this.http.post(`https://event-sourcing.azurewebsites.net/api/products`, null);
   }
 
   update(product: ProductReadModel) {
-    return this.http.put(`http://localhost:50158/api/products`, product);
+    return this.http.put(`https://event-sourcing.azurewebsites.net/api/products`, product);
   }
 }
