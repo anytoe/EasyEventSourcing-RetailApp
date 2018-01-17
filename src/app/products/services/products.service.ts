@@ -16,7 +16,7 @@ export class ProductsService {
   }
 
   create() {
-    return this.http.post(`https://event-sourcing.azurewebsites.net/api/products`, null);
+    return this.http.post(`https://event-sourcing.azurewebsites.net/api/products/create`, null);
   }
 
   update(product: ProductReadModel) {
